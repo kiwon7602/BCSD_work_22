@@ -13,4 +13,10 @@
         <item name="android:statusBarColor" tools:targetApi="l">?attr/colorPrimaryVariant</item>
         <!-- Customize your theme here. -->
     </style>
+
+    <style name="SmallTextTheme" parent="TextAppearance.AppCompat.Button">
+        <item name="android:backgroundTint">@color/white</item>
+        <item name="android:buttonTint">@color/white</item>
+        <item name="android:textColor">@color/black</item>
+    </style>
 </resources>

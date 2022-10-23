@@ -6,13 +6,113 @@
     android:layout_height="match_parent"
     tools:context=".MainActivity">
 
-    <TextView
+    <EditText
+        android:id="@+id/input_id_text"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
+        android:layout_marginEnd="20dp"
+        android:layout_marginTop="50dp"
+        android:hint="@string/id"
+        android:inputType="textPersonName"
+        app:layout_constraintBottom_toTopOf="@id/input_pw_text"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="1.0" />
+
+    <EditText
+        android:id="@+id/input_pw_text"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
+        android:layout_marginEnd="20dp"
+        android:layout_marginBottom="20dp"
+        android:hint="@string/pw"
+        android:inputType="textPassword"
+        app:layout_constraintBottom_toTopOf="@+id/login_button"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <Button
+        android:id="@+id/login_button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Hello World!"
+        android:backgroundTint="@color/white"
+        android:text="@string/login"
+        android:textColor="@color/black"
+        android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageButton
+        android:id="@+id/naver_button"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:layout_marginTop="20dp"
+        android:backgroundTint="@color/white"
+        android:scaleType="centerInside"
+        app:layout_constraintEnd_toEndOf="@id/login_button"
+        app:layout_constraintStart_toEndOf="@+id/kakao_button"
+        app:layout_constraintTop_toBottomOf="@id/login_button"
+        app:srcCompat="@drawable/ic_logo_naver" />
+
+    <ImageButton
+        android:id="@+id/kakao_button"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginEnd="20dp"
+        android:backgroundTint="@color/white"
+        android:scaleType="centerInside"
+        app:layout_constraintEnd_toStartOf="@id/naver_button"
+        app:layout_constraintStart_toEndOf="@+id/google_button"
+        app:layout_constraintTop_toBottomOf="@id/login_button"
+        app:srcCompat="@drawable/ic_logo_kakao" />
+
+    <ImageButton
+        android:id="@+id/google_button"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:layout_marginTop="20dp"
+        android:backgroundTint="@color/white"
+        android:scaleType="centerInside"
+        app:layout_constraintEnd_toStartOf="@+id/kakao_button"
+        app:layout_constraintHorizontal_chainStyle="spread_inside"
+        app:layout_constraintStart_toStartOf="@id/login_button"
+        app:layout_constraintTop_toBottomOf="@id/login_button"
+        app:srcCompat="@drawable/ic_logo_google" />
+
+    <Button
+        android:id="@+id/sign_up_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:layout_marginBottom="20dp"
+        android:backgroundTint="@color/white"
+        android:text="@string/sign_up"
+        android:textColor="@color/black"
+        app:layout_constraintEnd_toStartOf="@+id/find_pw_button"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/kakao_button"
+        app:layout_constraintBottom_toBottomOf="parent"/>
+
+    <Button
+        android:id="@+id/find_pw_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:layout_marginBottom="20dp"
+        android:backgroundTint="@color/white"
+        android:text="@string/find_pw"
+        android:textColor="@color/black"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/sign_up_button"
+        app:layout_constraintTop_toBottomOf="@id/kakao_button"
+        app:layout_constraintBottom_toBottomOf="parent"/>
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>

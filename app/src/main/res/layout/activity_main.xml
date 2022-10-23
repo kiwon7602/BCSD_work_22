@@ -36,12 +36,10 @@
 
     <Button
         android:id="@+id/login_button"
+        style="@style/SmallTextTheme"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:backgroundTint="@color/white"
         android:text="@string/login"
-        android:textColor="@color/black"
-        android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -88,13 +86,12 @@
 
     <Button
         android:id="@+id/sign_up_button"
+        style="@style/SmallTextTheme"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="20dp"
         android:layout_marginBottom="20dp"
-        android:backgroundTint="@color/white"
         android:text="@string/sign_up"
-        android:textColor="@color/black"
         app:layout_constraintEnd_toStartOf="@+id/find_pw_button"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/kakao_button"
@@ -102,13 +99,12 @@
 
     <Button
         android:id="@+id/find_pw_button"
+        style="@style/SmallTextTheme"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="20dp"
         android:layout_marginBottom="20dp"
-        android:backgroundTint="@color/white"
         android:text="@string/find_pw"
-        android:textColor="@color/black"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/sign_up_button"
         app:layout_constraintTop_toBottomOf="@id/kakao_button"

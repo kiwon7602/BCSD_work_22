@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">InitialState</string>
+    <string name="id" translatable="false">아이디</string>
+    <string name="pw" translatable="false">비밀번호</string>
+    <string name="login" translatable="false">로그인</string>
+    <string name="sign_up" translatable="false">회원가입</string>
+    <string name="find_pw" translatable="false">비밀번호 찾기</string>
+</resources>

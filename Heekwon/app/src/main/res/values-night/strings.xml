@@ -1,0 +1,9 @@
+<resources>
+    <string name="app_name">Assignment3</string>
+    <string name="password_find_button">Find Password</string>
+    <string name="sing_up_button">Sing Up</string>
+    <string name="password_id">Password</string>
+    <string name="Id_edit">Id</string>
+    <string name="login_text">Login</string>
+    <string name="login_button">Login</string>
+</resources>

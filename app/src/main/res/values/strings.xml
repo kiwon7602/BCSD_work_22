@@ -1,0 +1,9 @@
+<resources>
+    <string name="app_name">로그인</string>
+    <string name="guide_msg">아이디와 비밀번호를\n입력해주세요.</string>
+    <string name="welcome_msg">님 환영합니다!</string>
+    <string name="wrong_pw_msg">비밀번호가 틀렸습니다. 다시 확인해주세요!</string>
+    <string name="login">로그인</string>
+    <string name="pw_hint">비밀번호</string>
+    <string name="id_hint">아이디</string>
+</resources>

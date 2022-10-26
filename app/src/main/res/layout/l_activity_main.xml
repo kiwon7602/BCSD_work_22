@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:gravity="center"
+    tools:context=".MainActivity">
+
+    <ImageView
+        android:id="@+id/image_google_logo"
+        android:layout_width="153dp"
+        android:layout_height="113dp"
+        android:layout_gravity="center"
+        android:background="@android:color/transparent"
+        android:padding="0sp"
+        android:scaleType="centerInside"
+        android:layout_marginBottom="100sp"
+        android:src="@drawable/ic_logo_google" />
+
+    <TextView
+        android:id="@+id/text_login_guide"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:layout_margin="10sp"
+        android:text="아이디와 비밀번호를\n입력해주세요."
+        android:textColor="@color/black" />
+
+    <EditText
+        android:id="@+id/edit_id"
+        android:layout_width="374dp"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="10sp"
+        android:hint="아이디"
+        android:inputType="text"
+        android:nextFocusDown="@id/edit_password"
+        />
+
+    <EditText
+        android:id="@+id/edit_password"
+        android:layout_width="374dp"
+        android:layout_height="wrap_content"
+        android:hint="비밀번호"
+        android:inputType="textPassword"
+        android:imeOptions="actionDone"
+        />
+
+    <Button
+        android:id="@+id/btn_login"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="150sp"
+        android:text="로그인" />
+    <TextView
+        android:id="@+id/text_result"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:layout_margin="10sp"
+        />
+
+</LinearLayout>

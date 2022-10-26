@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:gravity="center"
+    android:ignoreGravity="@id/image_kakao_logo">
+
+
+    <ImageView
+        android:id="@+id/image_kakao_logo"
+        android:layout_width="100sp"
+        android:layout_height="100sp"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="100sp"
+        android:src="@drawable/ic_logo_kakao"
+
+        />
+
+    <TextView
+        android:id="@+id/text_login_guide"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="아이디와 비밀번호를\n입력해주세요."
+        android:textColor="@color/black"
+        android:layout_centerInParent="true"
+        android:layout_below="@id/image_kakao_logo"
+        android:layout_marginBottom="20sp"
+        />
+
+    <EditText
+        android:id="@+id/edit_id"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="아이디"
+        android:inputType="text"
+        android:nextFocusDown="@id/edit_password"
+        android:layout_below="@id/text_login_guide"
+        android:layout_marginHorizontal="20sp"
+        />
+
+    <EditText
+        android:id="@+id/edit_password"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="비밀번호"
+        android:imeOptions="actionDone"
+        android:inputType="textPassword"
+        android:layout_below="@id/edit_id"
+        android:layout_marginHorizontal="20sp"
+        android:layout_marginBottom="20sp"
+        />
+
+    <Button
+        android:id="@+id/btn_login"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="로그인"
+        android:layout_below="@id/edit_password"
+        android:layout_centerHorizontal="true"
+        />
+
+    <TextView
+        android:id="@+id/text_result"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/btn_login"
+        android:layout_marginBottom="100sp"
+        android:layout_marginTop="20sp"
+        android:layout_centerHorizontal="true"
+        />
+
+</RelativeLayout>

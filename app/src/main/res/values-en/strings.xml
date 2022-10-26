@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Login</string>
+    <string name="guide_msg">Please enter your\nID and password.</string>
+    <string name="welcome_msg">, Welcome!</string>
+    <string name="wrong_pw_msg">The password is invalid. Please check again!</string>
+    <string name="login">Login</string>
+    <string name="pw_hint">Password</string>
+    <string name="id_hint">ID</string>
+</resources>

@@ -4,11 +4,11 @@ plugins {
 }
 
 android {
-    namespace 'com.example.assignment3'
+    namespace 'com.example.assignment4'
     compileSdk 32
 
     defaultConfig {
-        applicationId "com.example.assignment3"
+        applicationId "com.example.assignment4"
         minSdk 31
         targetSdk 32
         versionCode 1
@@ -29,6 +29,9 @@ android {
     }
     kotlinOptions {
         jvmTarget = '1.8'
+    }
+    buildFeatures{
+        viewBinding true
     }
 }
 

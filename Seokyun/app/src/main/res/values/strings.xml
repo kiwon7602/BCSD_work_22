@@ -1,0 +1,6 @@
+<resources>
+    <string name="app_name">Seokyun</string>
+    <string name="login_title">RelativeLayout Login!</string>
+    <string name="login_info">네이버 로그인으로 에누리/가격비교 서비스를 이용하실 수 있습니다.</string>
+    <string name="login_btn">로그인</string>
+</resources>

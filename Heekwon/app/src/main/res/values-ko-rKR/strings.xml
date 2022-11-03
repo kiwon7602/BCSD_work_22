@@ -1,0 +1,9 @@
+<resources>
+    <string name="app_name">Assignment3</string>
+    <string name="password_find_button">비빌번호 찾기</string>
+    <string name="sing_up_button">회원가입</string>
+    <string name="password_id">비밀번호</string>
+    <string name="Id_edit">아이디</string>
+    <string name="login_text">로그인</string>
+    <string name="login_button">로그인</string>
+</resources>

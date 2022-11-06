@@ -1,10 +1,17 @@
 <resources>
     <string name="app_name">My Application</string>
     <string name="initial_num">0</string>
-    <string name="toast">toast</string>
+    <string name="dialog">dialog</string>
     <string name="count">count</string>
     <string name="random">random</string>
     <string name="toast_message">Toast버튼을 클릭했습니다.</string>
     <string name="initial">Initial</string>
     <string name="explain_message">Here is a random number between 0 and </string>
+    <string name="dialog_title">title</string>
+    <string name="dialog_message">message</string>
+    <string name="reset">초기화</string>
+    <string name="toast">안내</string>
+    <string name="end">종료</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>

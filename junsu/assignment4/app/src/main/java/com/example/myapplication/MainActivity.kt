@@ -1,5 +1,6 @@
 package com.example.myapplication
 
+import android.content.Context
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
@@ -8,22 +9,37 @@ import android.widget.TextView
 import android.widget.Toast
 import androidx.activity.result.ActivityResultLauncher
 import androidx.activity.result.contract.ActivityResultContracts
+import androidx.appcompat.app.AlertDialog
 
 class MainActivity : AppCompatActivity() {
-    private lateinit var getRandomNum: ActivityResultLauncher<Intent>
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
         var num = 0
         val numberTextView: TextView = findViewById(R.id.number_view)
-        val toastButton: Button = findViewById(R.id.toast_button)
+        val dialogButton: Button = findViewById(R.id.dialog_button)
         val countButton: Button = findViewById(R.id.count_button)
         val randomButton: Button = findViewById(R.id.random_button)
 
-        toastButton.setOnClickListener {
-            Toast.makeText(applicationContext, getString(R.string.toast_message), Toast.LENGTH_SHORT).show()
+        dialogButton.setOnClickListener {
+            val alertDialog = AlertDialog.Builder(this)
+
+            alertDialog.apply {
+                setTitle(getString(R.string.dialog_title))
+                setMessage(getString(R.string.dialog_message))
+                setPositiveButton(R.string.reset) { _, _ ->
+                    num = 0
+                    numberTextView.text = num.toString()
+                }
+                setNeutralButton(R.string.toast) { dialog, _ ->
+                    Toast.makeText(context, "print toast message", Toast.LENGTH_SHORT).show()
+                    dialog.dismiss()
+                }
+                setNegativeButton(R.string.end, null)
+            }
+
+            alertDialog.show()
         }
 
         countButton.setOnClickListener {
@@ -31,19 +47,17 @@ class MainActivity : AppCompatActivity() {
             numberTextView.text = num.toString()
         }
 
-        getRandomNum = registerForActivityResult(ActivityResultContracts.StartActivityForResult()) {
+        val startActivity = registerForActivityResult(ActivityResultContracts.StartActivityForResult()) {
             if(it.resultCode == RESULT_OK) {
-                val randomNum = it.data?.getIntExtra("num", -1) ?: ""
-                num = randomNum.toString().toInt()
+                num = it.data!!.getIntExtra("num", 0)
                 numberTextView.text = num.toString()
             }
         }
 
         randomButton.setOnClickListener {
-            val intent = Intent(this, SubActivity::class.java).apply {
-                putExtra("num", num)
-            }
-            getRandomNum.launch(intent)
+            val intent = Intent(this, SubActivity::class.java)
+            intent.putExtra("num", num)
+            startActivity.launch(intent)
         }
     }
 }

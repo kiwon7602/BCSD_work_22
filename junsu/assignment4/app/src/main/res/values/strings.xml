@@ -1,8 +1,0 @@
-<resources>
-    <string name="app_name">My Application</string>
-    <string name="id">id</string>
-    <string name="pw">password</string>
-    <string name="login">login</string>
-    <string name="sign_up">Sign Up</string>
-    <string name="find_pw">Find Pw</string>
-</resources>

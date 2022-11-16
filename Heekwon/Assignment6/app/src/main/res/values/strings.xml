@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">Assignment6</string>
+    <string name="input_text">input text</string>
+    <string name="plus">+</string>
+    <string name="textview">TextView</string>
+    <string name="ok">확인</string>
+    <string name="cancel">취소</string>
+</resources>

@@ -4,6 +4,13 @@
     <option name="filePathToZoomLevelMap">
       <map>
         <entry key="..\:/Users/12jan/AndroidStudioProjects/MyApplication4/app/src/main/res/layout/activity_main.xml" value="0.22826086956521738" />
+        <entry key="..\:/Users/12jan/github/BCSD_work_22/junsu/assignment7/app/src/main/res/drawable/color_icon.xml" value="0.2085" />
+        <entry key="..\:/Users/12jan/github/BCSD_work_22/junsu/assignment7/app/src/main/res/drawable/number_icon.xml" value="0.2085" />
+        <entry key="..\:/Users/12jan/github/BCSD_work_22/junsu/assignment7/app/src/main/res/layout/activity_main.xml" value="0.24947916666666667" />
+        <entry key="..\:/Users/12jan/github/BCSD_work_22/junsu/assignment7/app/src/main/res/layout/fragment_alphabet.xml" value="0.24947916666666667" />
+        <entry key="..\:/Users/12jan/github/BCSD_work_22/junsu/assignment7/app/src/main/res/layout/fragment_number.xml" value="0.23489583333333333" />
+        <entry key="..\:/Users/12jan/github/BCSD_work_22/junsu/assignment7/app/src/main/res/layout/fragment_rainbow.xml" value="0.24947916666666667" />
+        <entry key="..\:/Users/12jan/github/BCSD_work_22/junsu/assignment7/app/src/main/res/menu/bottom_navigation_menu.xml" value="0.2484375" />
       </map>
     </option>
   </component>

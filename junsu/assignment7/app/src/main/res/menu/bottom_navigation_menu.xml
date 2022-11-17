@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/rainbow_menu"
+        android:enabled="true"
+        android:icon="@drawable/color_icon"
+        android:title="@string/rainbow"/>
+
+    <item
+        android:id="@+id/number_menu"
+        android:enabled="true"
+        android:icon="@drawable/number_icon"
+        android:title="@string/number"/>
+
+    <item
+        android:id="@+id/alphabet_menu"
+        android:enabled="true"
+        android:icon="@drawable/alphabet_icon"
+        android:title="@string/alphabet"/>
+
+</menu>

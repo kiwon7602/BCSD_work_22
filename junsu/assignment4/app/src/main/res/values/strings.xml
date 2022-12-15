@@ -7,4 +7,8 @@
     <string name="toast_message">Toast버튼을 클릭했습니다.</string>
     <string name="initial">Initial</string>
     <string name="explain_message">Here is a random number between 0 and </string>
+    <string name="channel_name">채널명</string>
+    <string name="description">description</string>
+    <string name="notification_title">title</string>
+    <string name="notification_text">contents</string>
 </resources>

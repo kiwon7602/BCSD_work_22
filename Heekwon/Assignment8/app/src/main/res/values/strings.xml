@@ -1,0 +1,9 @@
+<resources>
+    <string name="app_name">Assignment8</string>
+    <string name="toast">Toast</string>
+    <string name="count">Count</string>
+    <string name="random">Random</string>
+    <string name="Explanation">"Here is a random number between 0 and "</string>
+    <string name="title">제목</string>
+    <string name="content">랜덤 넘버</string>
+</resources>

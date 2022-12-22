@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">Assignment8</string>
+    <string name="notification_title">랜덤 숫자가 공개 됩니다!</string>
+    <string name="notification_main_text">랜덤 숫자를 확인하려면 이 알람을 누르세요!</string>
+</resources>

@@ -18,6 +18,7 @@ import android.widget.Toast
 import androidx.appcompat.app.AlertDialog
 import androidx.core.content.res.ResourcesCompat
 import androidx.recyclerview.widget.RecyclerView
+import com.example.assignment_10.databinding.ItemMusicBinding
 import java.io.FileNotFoundException
 import java.io.InputStream
 import java.util.concurrent.TimeUnit
@@ -27,22 +28,34 @@ class MusicAdapter : RecyclerView.Adapter<MusicAdapter.ViewHolder>() {
     var dataList = mutableListOf<MusicData>()
     var mediaPlayer: MediaPlayer?= null
 
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int) =
-        ViewHolder(LayoutInflater.from(parent.context).inflate(R.layout.item_music, parent, false))
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int)= ViewHolder(LayoutInflater.from(parent.context).inflate(R.layout.item_music, parent, false))
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
 
-        val music = dataList.get(position)
         with(holder) {
             val item = dataList[position]
             titleTextView.text = item.title
             artistTextView.text = item.artist
             durationTextView.text = getDuration(item.duration)
-            getMusicUri(music)
+            getMusicUri(item)
             val albumArt = getAlbumArt(itemView.context, itemView.resources, item.albumId.toUri())
             albumArtImage.setImageDrawable(albumArt)
         }
+        holder.itemView.setOnClickListener {
+            itemClickListener.onClick(it, position)
+        }
     }
+
+    interface OnItemClickListener {
+        fun onClick(v: View, position: Int)
+    }
+    // (3) 외부에서 클릭 시 이벤트 설정
+    fun setItemClickListener(onItemClickListener: OnItemClickListener) {
+        this.itemClickListener = onItemClickListener
+    }
+    // (4) setItemClickListener로 설정한 함수 실행
+    private lateinit var itemClickListener : OnItemClickListener
+
 
     override fun getItemCount(): Int = dataList.size
 

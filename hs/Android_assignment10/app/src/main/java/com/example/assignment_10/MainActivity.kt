@@ -1,6 +1,8 @@
 package com.example.assignment_10
 
 import android.Manifest
+import android.media.MediaPlayer
+import android.net.Uri
 import android.os.Build
 import android.os.Bundle
 import android.provider.MediaStore
@@ -8,6 +10,7 @@ import android.view.View
 import android.widget.Button
 import android.widget.LinearLayout
 import android.widget.TextView
+import android.widget.Toast
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.annotation.RequiresApi
 import androidx.appcompat.app.AlertDialog
@@ -15,10 +18,10 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.example.assignment_10.databinding.ActivityMainBinding
 
 class MainActivity : AppCompatActivity() {
     @RequiresApi(Build.VERSION_CODES.M)
-
    //val print_num = findViewById<TextView>(R.id.print_number)
     // 권한을 허락할지 묻는다
     private val requestPermission =
@@ -42,10 +45,12 @@ class MainActivity : AppCompatActivity() {
         }
 
     private val dataList = mutableListOf<MusicData>()
+    private val musicData = MusicData()
     private val musicAdapter = MusicAdapter()
     private lateinit var recyclerView: RecyclerView
     private lateinit var emptyTextView: TextView
     private lateinit var permissionLayout: LinearLayout
+    var mediaPlayer: MediaPlayer?= null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -55,6 +60,8 @@ class MainActivity : AppCompatActivity() {
         recyclerView = findViewById(R.id.recycler_view)
         permissionLayout = findViewById(R.id.permission_layout)
         val permissionSettingButton: Button = findViewById(R.id.permission_settings_button)
+        var artistName: TextView = findViewById(R.id.text_artist)
+        var titleName: TextView = findViewById(R.id.text_name)
 
         initView()
 
@@ -62,6 +69,23 @@ class MainActivity : AppCompatActivity() {
         permissionSettingButton.setOnClickListener {
             openSettings.launch(null)
         }
+
+        musicAdapter.setItemClickListener(object: MusicAdapter.OnItemClickListener{
+            override fun onClick(v: View, position: Int) {
+                var musicUri: Uri? = null
+                musicUri = Uri.withAppendedPath(MediaStore.Audio.Media.EXTERNAL_CONTENT_URI,  dataList[position].id)
+                artistName.text = dataList[position].artist
+                titleName.text = dataList[position].title
+                if(mediaPlayer != null)
+                {
+                    mediaPlayer?.release()
+                    mediaPlayer = null
+                }
+                mediaPlayer = MediaPlayer.create(v.context, musicUri)
+                mediaPlayer?.start()
+            }
+        })
+
     }
 
     @RequiresApi(Build.VERSION_CODES.M)

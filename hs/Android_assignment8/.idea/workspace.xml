@@ -10,9 +10,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="0aeeb553-ae69-43c6-9068-7639f0c54379" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/app/src/main/java/com/example/assignment8/SubActivity.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/res/drawable/notion_image.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_sub.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Android_assignment10/app/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/../Android_assignment10/app/build.gradle" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Android_assignment10/app/src/main/java/com/example/assignment_10/MainActivity.kt" beforeDir="false" afterPath="$PROJECT_DIR$/../Android_assignment10/app/src/main/java/com/example/assignment_10/MainActivity.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Android_assignment10/app/src/main/java/com/example/assignment_10/MusicAdapter.kt" beforeDir="false" afterPath="$PROJECT_DIR$/../Android_assignment10/app/src/main/java/com/example/assignment_10/MusicAdapter.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Android_assignment10/app/src/main/res/layout/item_music.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../Android_assignment10/app/src/main/res/layout/item_music.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -24,6 +26,23 @@
     <projectState path="$PROJECT_DIR$">
       <ProjectState />
     </projectState>
+  </component>
+  <component name="ExternalProjectsManager">
+    <system id="GRADLE">
+      <state>
+        <projects_view>
+          <tree_state>
+            <expand>
+              <path>
+                <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
+                <item name="Assignment8" type="f1a62948:ProjectNode" />
+              </path>
+            </expand>
+            <select />
+          </tree_state>
+        </projects_view>
+      </state>
+    </system>
   </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
@@ -50,6 +69,7 @@
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="RunOnceActivity.cidr.known.project.marker" value="true" />
     <property name="cidr.known.project.marker" value="true" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
   </component>
   <component name="RunManager">
     <configuration name="app" type="AndroidRunConfigurationType" factoryName="Android App" activateToolWindowBeforeRun="false">

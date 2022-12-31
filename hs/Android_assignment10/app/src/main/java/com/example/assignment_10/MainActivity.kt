@@ -1,6 +1,11 @@
 package com.example.assignment_10
 
 import android.Manifest
+import android.app.NotificationChannel
+import android.app.NotificationManager
+import android.app.PendingIntent
+import android.content.Context
+import android.content.Intent
 import android.media.MediaPlayer
 import android.net.Uri
 import android.os.Build
@@ -8,6 +13,7 @@ import android.os.Bundle
 import android.provider.MediaStore
 import android.view.View
 import android.widget.Button
+import android.widget.ImageButton
 import android.widget.LinearLayout
 import android.widget.TextView
 import android.widget.Toast
@@ -15,6 +21,7 @@ import androidx.activity.result.contract.ActivityResultContracts
 import androidx.annotation.RequiresApi
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.app.NotificationCompat
 import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
@@ -45,16 +52,20 @@ class MainActivity : AppCompatActivity() {
         }
 
     private val dataList = mutableListOf<MusicData>()
-    private val musicData = MusicData()
     private val musicAdapter = MusicAdapter()
     private lateinit var recyclerView: RecyclerView
     private lateinit var emptyTextView: TextView
     private lateinit var permissionLayout: LinearLayout
-    var mediaPlayer: MediaPlayer?= null
+    var mediaPlayer: MediaPlayer?= null //미디어 플레이어
+    var tmpMediaPlayer: MediaPlayer?= null //미디어 플레이어
+
+    private val CHANNEL_ID = "testChannel01"   // 노티를 위한 채널
+    private var notificationManager: NotificationManager? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
+        createNotificationChannel(CHANNEL_ID, "testChannel", "this is a test Channel")
 
         emptyTextView = findViewById(R.id.empty_text_view)
         recyclerView = findViewById(R.id.recycler_view)
@@ -62,6 +73,7 @@ class MainActivity : AppCompatActivity() {
         val permissionSettingButton: Button = findViewById(R.id.permission_settings_button)
         var artistName: TextView = findViewById(R.id.text_artist)
         var titleName: TextView = findViewById(R.id.text_name)
+        var playBtn: ImageButton = findViewById(R.id.play_btn)
 
         initView()
 
@@ -76,6 +88,8 @@ class MainActivity : AppCompatActivity() {
                 musicUri = Uri.withAppendedPath(MediaStore.Audio.Media.EXTERNAL_CONTENT_URI,  dataList[position].id)
                 artistName.text = dataList[position].artist
                 titleName.text = dataList[position].title
+                displayNotification(position)
+                playBtn.setImageResource(R.drawable.ic_pause)
                 if(mediaPlayer != null)
                 {
                     mediaPlayer?.release()
@@ -85,6 +99,21 @@ class MainActivity : AppCompatActivity() {
                 mediaPlayer?.start()
             }
         })
+
+        playBtn.setOnClickListener(){
+            if(mediaPlayer == null){
+                playBtn.setImageResource(R.drawable.ic_play)
+            }
+            else if(mediaPlayer!!.isPlaying)
+            {
+                mediaPlayer!!.pause()
+                playBtn.setImageResource(R.drawable.ic_play)
+            }
+            else{
+                mediaPlayer?.start()
+                playBtn.setImageResource(R.drawable.ic_pause)
+            }
+        }
 
     }
 
@@ -218,6 +247,46 @@ class MainActivity : AppCompatActivity() {
             checkPermission()
         } else {
             getAudioFile()
+        }
+    }
+
+    //노티
+    private fun displayNotification(position: Int) {
+        val notificationId = 45
+
+        val tapResultIntent = Intent(this, MainActivity::class.java).apply {
+            flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
+            //여기를 수정해야 할듯
+        }
+
+        val pendingIntent: PendingIntent = PendingIntent.getActivity(
+            this,
+            0,
+            tapResultIntent,
+            PendingIntent.FLAG_IMMUTABLE or PendingIntent.FLAG_UPDATE_CURRENT
+        )
+
+        val notification = NotificationCompat.Builder(applicationContext, CHANNEL_ID)
+            .setSmallIcon(R.drawable.ic_music_noti)
+            .setContentTitle(dataList[position].title)
+            .setContentText(dataList[position].artist)
+            .setPriority(NotificationCompat.PRIORITY_DEFAULT)
+            .setContentIntent(pendingIntent)
+            .setAutoCancel(false)
+            .build()
+
+        notificationManager?.notify(notificationId, notification)
+    }
+
+    private fun createNotificationChannel(channelId: String, name: String, channelDescription: String) {
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+            val importance = NotificationManager.IMPORTANCE_LOW // set importance
+            val channel = NotificationChannel(channelId, name, importance).apply {
+                description = channelDescription
+            }
+            // Register the channel with the system
+            notificationManager = getSystemService(Context.NOTIFICATION_SERVICE) as NotificationManager
+            notificationManager?.createNotificationChannel(channel)
         }
     }
 }

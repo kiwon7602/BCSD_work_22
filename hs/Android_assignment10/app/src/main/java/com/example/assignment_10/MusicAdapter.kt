@@ -26,7 +26,6 @@ import java.util.concurrent.TimeUnit
 class MusicAdapter : RecyclerView.Adapter<MusicAdapter.ViewHolder>() {
 
     var dataList = mutableListOf<MusicData>()
-    var mediaPlayer: MediaPlayer?= null
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int)= ViewHolder(LayoutInflater.from(parent.context).inflate(R.layout.item_music, parent, false))
 
@@ -37,7 +36,6 @@ class MusicAdapter : RecyclerView.Adapter<MusicAdapter.ViewHolder>() {
             titleTextView.text = item.title
             artistTextView.text = item.artist
             durationTextView.text = getDuration(item.duration)
-            getMusicUri(item)
             val albumArt = getAlbumArt(itemView.context, itemView.resources, item.albumId.toUri())
             albumArtImage.setImageDrawable(albumArt)
         }
@@ -64,22 +62,6 @@ class MusicAdapter : RecyclerView.Adapter<MusicAdapter.ViewHolder>() {
         val artistTextView: TextView = itemView.findViewById(R.id.artist_text_view)
         val durationTextView: TextView = itemView.findViewById(R.id.duration_text_view)
         val albumArtImage: ImageView = itemView.findViewById(R.id.album_art_image)
-
-        var musicUri: Uri? = null
-        init{
-            itemView.setOnClickListener{
-                if(mediaPlayer != null)
-                {
-                    mediaPlayer?.release()
-                    mediaPlayer = null
-                }
-                mediaPlayer = MediaPlayer.create(itemView.context, musicUri)
-                mediaPlayer?.start()
-            }
-        }
-        fun getMusicUri(music: MusicData){
-            this.musicUri = music.getMusicUri()
-        }
 
     }
 

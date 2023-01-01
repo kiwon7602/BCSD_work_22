@@ -1,3 +1,12 @@
 <resources>
     <string name="app_name">My Application</string>
+    <string name="empty_music">음악이 없습니다.</string>
+    <string name="need_permission">권한이 필요합니다</string>
+    <string name="go_setting">권한 창 열기</string>
+    <string name="dialog_title">권한 요청</string>
+    <string name="dialog_message">권한을 허용하시겠습니까?</string>
+    <string name="dialog_ok">허용</string>
+    <string name="dialog_cancel">취소</string>
+    <string name="notification_name">음악</string>
+    <string name="notification_description">정보</string>
 </resources>

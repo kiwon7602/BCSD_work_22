@@ -1,26 +1,32 @@
 package com.example.noticeboard
 
 import android.annotation.SuppressLint
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.widget.Button
-import android.widget.EditText
 import android.widget.TextView
 import androidx.appcompat.app.AlertDialog
 import androidx.recyclerview.widget.LinearLayoutManager
-import androidx.recyclerview.widget.RecyclerView
+import com.example.noticeboard.databinding.ActivityMainBinding
 
 class MainActivity : AppCompatActivity() {
+
+    private lateinit var binding: ActivityMainBinding
+    val myAdapter = NoticeAdapter()
+
     @SuppressLint("MissingInflatedId", "SuspiciousIndentation")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_main)
+        binding = ActivityMainBinding.inflate(layoutInflater)
+        val view = binding.root
+        setContentView(view)
 
-        val inputName = findViewById<EditText>(R.id.input_text)
-        val addButton = findViewById<Button>(R.id.plus_button)
-        val recyclerView: RecyclerView = findViewById(R.id.my_recycler_view)
-        val myAdapter = NoticeAdapter()
+        val addButton = binding.addNotice
+        val recyclerView = binding.myRecyclerView
+        var test = binding.test
         val layoutManager = LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false)
+
+        test.text = myAdapter.itemCount.toString()
 
         recyclerView.apply {
             setHasFixedSize(true)
@@ -29,8 +35,9 @@ class MainActivity : AppCompatActivity() {
         }
 
         addButton.setOnClickListener{
-            myAdapter.addName(inputName.text.toString())
-            inputName.setText("")
+            val intent_main = Intent(this, AddNoticeActivity::class.java)
+            startActivity(intent_main)
+            //myAdapter.addNotice("가", "나", "다")
         }
 
         myAdapter.setOnItemClickListener {

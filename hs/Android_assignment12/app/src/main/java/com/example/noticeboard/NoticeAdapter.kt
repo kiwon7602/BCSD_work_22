@@ -13,8 +13,6 @@ class NoticeAdapter: RecyclerView.Adapter<NoticeAdapter.ViewHolder>() {
     private val dataSet = mutableListOf<NoticeData>()
 
     class ViewHolder(private val binding: NoticeItemBinding): RecyclerView.ViewHolder(binding.root){
-        val number = binding.numberView
-        val data = binding.nameTextView
         fun bind(item: NoticeData){
                binding.data = item
                binding.executePendingBindings()
@@ -30,17 +28,7 @@ class NoticeAdapter: RecyclerView.Adapter<NoticeAdapter.ViewHolder>() {
 
     override fun onBindViewHolder(viewHolder: ViewHolder, position: Int) {
         with(viewHolder) {
-            number.text = (position + 1).toString() + ". "
             bind(dataSet[position])
-
-            data.setOnClickListener {
-                onClickListener.onItemClick(adapterPosition)
-            }
-
-            data.setOnLongClickListener {
-                onLongClickListener.onItemLongClick(adapterPosition)
-                true
-            }
         }
     }
 
@@ -72,9 +60,9 @@ class NoticeAdapter: RecyclerView.Adapter<NoticeAdapter.ViewHolder>() {
         }
     }
 
-    fun addName(name: String)
+    fun addNotice(title: String, content: String, name: String)
     {
-        dataSet.add(NoticeData(name))
+        dataSet.add(NoticeData(title, content, name))
         notifyDataSetChanged()
     }
 

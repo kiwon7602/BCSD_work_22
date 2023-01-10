@@ -8,8 +8,8 @@
         android:id="@+id/notice_title"
         android:layout_width="410dp"
         android:layout_height="50dp"
-        android:background="null"
         android:hint="제목"
+        android:maxLength="40"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -21,20 +21,41 @@
         android:scrollbars="vertical"
         android:lines="20"
         android:layout_width="410dp"
-        android:layout_height="410dp"
+        android:layout_height="330dp"
         android:hint="내용"
-        android:background="null"
         app:layout_constraintTop_toBottomOf="@+id/notice_title"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
 
     <EditText
         android:id="@+id/notice_writer"
-        android:layout_width="wrap_content"
+        android:layout_width="140dp"
         android:layout_height="wrap_content"
         android:hint="작성자"
-        android:maxLength="10"
+        android:maxLength="12"
+        android:minHeight="48dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/notice_content" />
+
+    <Button
+        android:id="@+id/notice_add_btn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:text="게시하기"
         app:layout_constraintTop_toBottomOf="@id/notice_content"
-        app:layout_constraintStart_toStartOf="parent" />
+        android:layout_marginRight="10dp"/>
+
+    <Button
+        android:id="@+id/return_btn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:text="돌아가기"
+        app:layout_constraintTop_toBottomOf="@id/notice_content"
+        app:layout_constraintEnd_toStartOf="@id/notice_add_btn"
+        android:layout_marginRight="30dp"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

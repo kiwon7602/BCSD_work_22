@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <data>
+        <variable
+            name="write_activity"
+            type="com.example.myapplication.WriteActivity" />
+
+        <variable
+            name="post_item"
+            type="com.example.myapplication.PostItem" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".WriteActivity">
+
+        <EditText
+            android:id="@+id/title_edit_view"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="@string/title"
+            android:text="@{post_item.title}"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintBottom_toTopOf="@id/writer_edit_view"/>
+
+        <EditText
+            android:id="@+id/writer_edit_view"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="@string/writer"
+            android:text="@{post_item.writer}"
+            app:layout_constraintTop_toBottomOf="@id/title_edit_view"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintBottom_toTopOf="@id/edit_content_view"/>
+
+        <EditText
+            android:id="@+id/edit_content_view"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:hint="@string/content"
+            android:gravity="top"
+            app:layout_constraintTop_toBottomOf="@id/writer_edit_view"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintBottom_toTopOf="@id/add_button"/>
+
+        <Button
+            android:id="@+id/add_button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/add"
+            android:layout_marginBottom="20dp"
+            android:onClick="@{()->write_activity.addPost()}"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/edit_content_view"/>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

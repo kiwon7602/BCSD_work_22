@@ -5,13 +5,17 @@ import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.TextView
+import androidx.activity.viewModels
 import androidx.appcompat.app.AlertDialog
+import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.noticeboard.databinding.ActivityMainBinding
+import java.util.Observer
 
 class MainActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityMainBinding
+    lateinit var viewModel : MainViewModel
     val myAdapter = NoticeAdapter()
 
     @SuppressLint("MissingInflatedId", "SuspiciousIndentation")
@@ -21,12 +25,15 @@ class MainActivity : AppCompatActivity() {
         val view = binding.root
         setContentView(view)
 
+        viewModel = ViewModelProvider(this).get(MainViewModel::class.java)
+
         val addButton = binding.addNotice
         val recyclerView = binding.myRecyclerView
         var test = binding.test
         val layoutManager = LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false)
 
-        test.text = myAdapter.itemCount.toString()
+        test.text = viewModel.get_size().toString()
+        myAdapter.setNoticeItemList(viewModel.noticedata)
 
         recyclerView.apply {
             setHasFixedSize(true)
@@ -40,30 +47,13 @@ class MainActivity : AppCompatActivity() {
             //myAdapter.addNotice("가", "나", "다")
         }
 
-        myAdapter.setOnItemClickListener {
-            val builder = AlertDialog.Builder(this)
-                .setTitle("삭제")
-                .setMessage("삭제 하시겠습니다?")
-                .setPositiveButton("예") { _, _ ->
-                    myAdapter.deleteName(it)
-                }
-                .setNegativeButton("아니오") { _ , _ -> null}
-                .show()
+        if(intent.hasExtra("제목")) {
+            myAdapter.addNotice(
+                intent.getStringExtra("제목").toString(),
+                intent.getStringExtra("내용").toString(),
+                intent.getStringExtra("글쓴이").toString()
+            )
         }
 
-        myAdapter.setOnItemLongClickListener {
-            val inflater = layoutInflater
-            val rootView = inflater.inflate(R.layout.revise_name_dialog, null)
-
-            val builder = AlertDialog.Builder(this)
-                .setTitle("수정")
-                .setView(rootView)
-                .setPositiveButton("예") { _, _ ->
-                    val editNameText: TextView = rootView.findViewById(R.id.edit_name_text_view)
-                    myAdapter.reviseData(editNameText.text.toString(), it)
-                }
-                .setNegativeButton("취소") { _, _ -> null}
-                .show()
-        }
     }
 }

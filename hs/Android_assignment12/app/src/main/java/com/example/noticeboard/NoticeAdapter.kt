@@ -7,10 +7,10 @@ import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.example.noticeboard.databinding.NoticeItemBinding
 
-class NoticeAdapter: RecyclerView.Adapter<NoticeAdapter.ViewHolder>() {
+class NoticeAdapter(): RecyclerView.Adapter<NoticeAdapter.ViewHolder>() {
     lateinit var onLongClickListener: OnLongClickListener
     lateinit var onClickListener: OnClickListener
-    private val dataSet = mutableListOf<NoticeData>()
+    var dataSet = mutableListOf<NoticeData>()
 
     class ViewHolder(private val binding: NoticeItemBinding): RecyclerView.ViewHolder(binding.root){
         fun bind(item: NoticeData){
@@ -74,6 +74,11 @@ class NoticeAdapter: RecyclerView.Adapter<NoticeAdapter.ViewHolder>() {
 
     fun reviseData(name: String, position: Int) {
         dataSet[position].name = name
+        notifyDataSetChanged()
+    }
+
+    fun setNoticeItemList(test: MutableList<NoticeData>){
+        this.dataSet = test
         notifyDataSetChanged()
     }
 }

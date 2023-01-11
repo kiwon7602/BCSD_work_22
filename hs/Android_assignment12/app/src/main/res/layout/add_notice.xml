@@ -6,7 +6,7 @@
 
     <EditText
         android:id="@+id/notice_title"
-        android:layout_width="410dp"
+        android:layout_width="match_parent"
         android:layout_height="50dp"
         android:hint="제목"
         android:maxLength="40"
@@ -20,7 +20,7 @@
         android:inputType="text|textMultiLine"
         android:scrollbars="vertical"
         android:lines="20"
-        android:layout_width="410dp"
+        android:layout_width="match_parent"
         android:layout_height="330dp"
         android:hint="내용"
         app:layout_constraintTop_toBottomOf="@+id/notice_title"
@@ -36,26 +36,5 @@
         android:minHeight="48dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/notice_content" />
-
-    <Button
-        android:id="@+id/notice_add_btn"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        android:text="게시하기"
-        app:layout_constraintTop_toBottomOf="@id/notice_content"
-        android:layout_marginRight="10dp"/>
-
-    <Button
-        android:id="@+id/return_btn"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        android:text="돌아가기"
-        app:layout_constraintTop_toBottomOf="@id/notice_content"
-        app:layout_constraintEnd_toStartOf="@id/notice_add_btn"
-        android:layout_marginRight="30dp"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

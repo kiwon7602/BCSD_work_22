@@ -8,9 +8,8 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.noticeboard.databinding.NoticeItemBinding
 
 class NoticeAdapter(): RecyclerView.Adapter<NoticeAdapter.ViewHolder>() {
-    lateinit var onLongClickListener: OnLongClickListener
-    lateinit var onClickListener: OnClickListener
     var dataSet = mutableListOf<NoticeData>()
+    lateinit var onLongClickListener: OnLongClickListener
 
     class ViewHolder(private val binding: NoticeItemBinding): RecyclerView.ViewHolder(binding.root){
         fun bind(item: NoticeData){
@@ -29,28 +28,34 @@ class NoticeAdapter(): RecyclerView.Adapter<NoticeAdapter.ViewHolder>() {
     override fun onBindViewHolder(viewHolder: ViewHolder, position: Int) {
         with(viewHolder) {
             bind(dataSet[position])
+            itemView.setOnClickListener {
+                itemClickListener.onClick(it, position)
+            }
+            itemView.setOnLongClickListener {
+                onLongClickListener.onItemLongClick(adapterPosition)
+                true
+            }
         }
-    }
 
+    }
     override fun getItemCount(): Int {
         return  dataSet.size
     }
 
-    interface OnClickListener {
-        fun onItemClick(position: Int)
+    interface OnItemClickListener {
+        fun onClick(v: View, position: Int)
     }
+    // (3) 외부에서 클릭 시 이벤트 설정
+    fun setItemClickListener(onItemClickListener: OnItemClickListener) {
+        this.itemClickListener = onItemClickListener
+    }
+    // (4) setItemClickListener로 설정한 함수 실행
+    private lateinit var itemClickListener : OnItemClickListener
 
     interface OnLongClickListener {
         fun onItemLongClick(position: Int)
     }
 
-    inline fun setOnItemClickListener(crossinline item: (Int) -> Unit) {
-        this.onClickListener = object: OnClickListener {
-            override fun onItemClick(position: Int) {
-                item(position)
-            }
-        }
-    }
 
     inline fun setOnItemLongClickListener(crossinline item: (Int) -> Unit) {
         this.onLongClickListener = object: OnLongClickListener {
@@ -72,7 +77,9 @@ class NoticeAdapter(): RecyclerView.Adapter<NoticeAdapter.ViewHolder>() {
         notifyDataSetChanged()
     }
 
-    fun reviseData(name: String, position: Int) {
+    fun reviseData(title: String, content: String, name: String, position: Int) {
+        dataSet[position].title = title
+        dataSet[position].content = content
         dataSet[position].name = name
         notifyDataSetChanged()
     }

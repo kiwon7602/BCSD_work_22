@@ -23,20 +23,19 @@ class AddNoticeActivity : AppCompatActivity() {
         setContentView(view)
 
         val myAdapter = NoticeAdapter()
-        viewModel = ViewModelProvider(this).get(MainViewModel::class.java)
-
-        val addBtn = binding.noticeAddBtn
-        val returnBtn = binding.returnBtn
+        //val addBtn = binding.noticeAddBtn
+        //val returnBtn = binding.returnBtn
         val inputTitle = binding.noticeTitle
         val inputContent = binding.noticeContent
         val inputName = binding.noticeWriter
 
-        addBtn.setOnClickListener{
-            //viewModel.add_data(NoticeData(inputTitle.text.toString(), inputContent.text.toString(), inputName.text.toString()))
+        /*addBtn.setOnClickListener{
+
+            viewModel.add_data(NoticeData(inputTitle.text.toString(), inputContent.text.toString(), inputName.text.toString()))
             val intent_main = Intent(this, MainActivity::class.java)
-            intent_main.putExtra("제목",inputTitle.text.toString())
-            intent_main.putExtra("내용",inputContent.text.toString())
-            intent_main.putExtra("글쓴이",inputName.text.toString())
+            //intent_main.putExtra("제목",inputTitle.text.toString())
+            //intent_main.putExtra("내용",inputContent.text.toString())
+            //intent_main.putExtra("글쓴이",inputName.text.toString())
             startActivity(intent_main)
         }
 
@@ -44,6 +43,6 @@ class AddNoticeActivity : AppCompatActivity() {
             val intent_main = Intent(this, MainActivity::class.java)
             startActivity(intent_main)
         }
-
+            */
     }
 }

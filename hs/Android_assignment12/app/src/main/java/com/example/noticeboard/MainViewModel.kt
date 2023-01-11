@@ -7,15 +7,18 @@ import androidx.lifecycle.ViewModel
 class MainViewModel : ViewModel(){
 
     private val _noticeLiveData = MutableLiveData<MutableList<NoticeData>>()
-    val noticedata = mutableListOf<NoticeData>()
+    var noticedata = mutableListOf<NoticeData>()
 
     val currentValue: LiveData<MutableList<NoticeData>>
         get() = _noticeLiveData
 
     fun add_data(noticeData: NoticeData)
     {
-        noticedata.add(noticeData)
+        NoticeDataList().noticedata.add(noticeData)
         _noticeLiveData.value = noticedata
+    }
+    fun get_list(): MutableList<NoticeData>{
+        return NoticeDataList().noticedata
     }
     fun get_size() : Int {
         return noticedata.size

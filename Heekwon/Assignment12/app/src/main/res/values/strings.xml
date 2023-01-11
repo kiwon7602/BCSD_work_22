@@ -1,0 +1,9 @@
+<resources>
+    <string name="app_name">Assignment12</string>
+    <string name="title">title</string>
+    <string name="content">content</string>
+    <string name="user">TestUser</string>
+    <string name="time">00:00</string>
+    <string name="add">Add</string>
+    <string name="modify">modify</string>
+</resources>

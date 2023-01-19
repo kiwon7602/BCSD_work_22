@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <EditText
+        android:id="@+id/notice_title"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:hint="제목"
+        android:maxLength="40"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginTop="30dp"/>
+
+    <ImageView
+        android:id="@+id/image_content"
+        android:layout_width="wrap_content"
+        android:layout_height="150dp"
+        android:src="@drawable/ic_launcher_background"
+        app:layout_constraintTop_toBottomOf="@+id/notice_title"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintBottom_toTopOf="@id/notice_content"/>
+
+    <EditText
+        android:id="@+id/notice_content"
+        android:inputType="text|textMultiLine"
+        android:scrollbars="vertical"
+        android:lines="20"
+        android:layout_width="match_parent"
+        android:layout_height="330dp"
+        android:hint="내용"
+        app:layout_constraintTop_toBottomOf="@+id/image_content"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <EditText
+        android:id="@+id/notice_writer"
+        android:layout_width="140dp"
+        android:layout_height="wrap_content"
+        android:hint="작성자"
+        android:maxLength="12"
+        android:minHeight="48dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/notice_content" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/notice_add_btn"
+        android:text="게시하기"
+        app:layout_constraintStart_toEndOf="@+id/return_btn"
+        app:layout_constraintTop_toBottomOf="@id/picture_add_btn"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/return_btn"
+        android:text="뒤로가기"
+        app:layout_constraintStart_toEndOf="@+id/notice_writer"
+        app:layout_constraintTop_toBottomOf="@id/picture_delete_btn"
+        app:layout_constraintEnd_toStartOf="@id/notice_add_btn" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/picture_add_btn"
+        android:text="사진추가"
+        app:layout_constraintStart_toEndOf="@+id/picture_delete_btn"
+        app:layout_constraintTop_toBottomOf="@id/notice_content"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/picture_delete_btn"
+        android:text="사진삭제"
+        app:layout_constraintStart_toEndOf="@+id/notice_writer"
+        app:layout_constraintTop_toBottomOf="@id/notice_content"
+        app:layout_constraintEnd_toStartOf="@id/picture_add_btn" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

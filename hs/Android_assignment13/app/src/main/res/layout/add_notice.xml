@@ -15,6 +15,16 @@
         app:layout_constraintEnd_toEndOf="parent"
         android:layout_marginTop="30dp"/>
 
+    <ImageView
+        android:id="@+id/image_content"
+        android:layout_width="wrap_content"
+        android:layout_height="150dp"
+        android:src="@drawable/ic_launcher_background"
+        app:layout_constraintTop_toBottomOf="@+id/notice_title"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintBottom_toTopOf="@id/notice_content"/>
+
     <EditText
         android:id="@+id/notice_content"
         android:inputType="text|textMultiLine"
@@ -23,7 +33,7 @@
         android:layout_width="match_parent"
         android:layout_height="330dp"
         android:hint="내용"
-        app:layout_constraintTop_toBottomOf="@+id/notice_title"
+        app:layout_constraintTop_toBottomOf="@+id/image_content"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
 
@@ -40,21 +50,37 @@
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/noticeAddBtn"
-        android:text="추가"
-        app:layout_constraintStart_toEndOf="@+id/returnBtn"
-        app:layout_constraintTop_toBottomOf="@id/notice_content"
-        app:layout_constraintEnd_toEndOf="parent"
-        />
+        android:id="@+id/notice_add_btn"
+        android:text="게시하기"
+        app:layout_constraintStart_toEndOf="@+id/return_btn"
+        app:layout_constraintTop_toBottomOf="@id/picture_add_btn"
+        app:layout_constraintEnd_toEndOf="parent" />
 
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/returnBtn"
+        android:id="@+id/return_btn"
         android:text="뒤로가기"
         app:layout_constraintStart_toEndOf="@+id/notice_writer"
+        app:layout_constraintTop_toBottomOf="@id/picture_delete_btn"
+        app:layout_constraintEnd_toStartOf="@id/notice_add_btn" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/picture_add_btn"
+        android:text="사진추가"
+        app:layout_constraintStart_toEndOf="@+id/picture_delete_btn"
         app:layout_constraintTop_toBottomOf="@id/notice_content"
-        app:layout_constraintEnd_toStartOf="@id/noticeAddBtn"
-        />
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/picture_delete_btn"
+        android:text="사진삭제"
+        app:layout_constraintStart_toEndOf="@+id/notice_writer"
+        app:layout_constraintTop_toBottomOf="@id/notice_content"
+        app:layout_constraintEnd_toStartOf="@id/picture_add_btn" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

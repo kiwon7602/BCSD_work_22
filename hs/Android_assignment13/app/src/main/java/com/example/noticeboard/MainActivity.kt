@@ -1,9 +1,12 @@
 package com.example.noticeboard
 
+import android.Manifest
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
+import android.widget.Toast
+import androidx.activity.result.contract.ActivityResultContracts
 import androidx.appcompat.app.AlertDialog
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.DividerItemDecoration
@@ -16,12 +19,23 @@ class MainActivity : AppCompatActivity() {
     lateinit var viewModel : MainViewModel
     val myAdapter = NoticeAdapter()
 
+    private val permissionList = arrayOf(Manifest.permission.READ_EXTERNAL_STORAGE)
+    private val checkPermission = registerForActivityResult(ActivityResultContracts.RequestMultiplePermissions()) { result ->
+        result.forEach {
+            if(!it.value) {
+                Toast.makeText(applicationContext, "권한 동의 필요!", Toast.LENGTH_SHORT).show()
+                finish()
+            }
+        }
+    }
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityMainBinding.inflate(layoutInflater)
         val view = binding.root
         setContentView(view)
 
+        checkPermission.launch(permissionList)
         viewModel = ViewModelProvider(this)[MainViewModel::class.java]
 
         val addButton = binding.addNotice

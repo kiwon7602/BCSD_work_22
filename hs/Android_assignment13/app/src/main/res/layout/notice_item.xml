@@ -19,9 +19,18 @@
             android:text="@{data.title}"
             android:textColor="@color/black"
             android:textSize="24sp"
-            app:layout_constraintBottom_toTopOf="@id/content"
+            app:layout_constraintBottom_toTopOf="@id/picture"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
+
+        <ImageView
+            android:id="@+id/picture"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            image="@{data.uri}"
+            app:layout_constraintBottom_toTopOf="@id/content"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/title" />
 
         <TextView
             android:id="@+id/content"
@@ -32,7 +41,7 @@
             android:textSize="24sp"
             app:layout_constraintBottom_toTopOf="@+id/name"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/title" />
+            app:layout_constraintTop_toBottomOf="@id/picture" />
 
         <TextView
             android:id="@+id/name"

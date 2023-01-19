@@ -34,6 +34,7 @@ class MainViewModel : ViewModel(){
         items[position].title = noticeData.title
         items[position].content = noticeData.content
         items[position].name  = noticeData.name
+        items[position].uri  = noticeData.uri
         _noticeLiveData.value = items
     }
 }

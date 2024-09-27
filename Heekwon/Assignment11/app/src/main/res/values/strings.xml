@@ -1,0 +1,9 @@
+<resources>
+    <string name="app_name">Assignment11</string>
+    <string name="Start">Start</string>
+    <string name="Stop">Stop</string>
+    <string name="Pause">Pause</string>
+    <string name="lap">Lap</string>
+    <string name="currenttext">currentText</string>
+    <string name="Zero">00:00:00</string>
+</resources>

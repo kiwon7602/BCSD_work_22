@@ -1,0 +1,10 @@
+<resources>
+    <string name="app_name">Assignment7</string>
+    <string name="menu_item_first">A</string>
+    <string name="menu_item_second">B</string>
+    <string name="menu_item_third">C</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="alphabet_fragment_text">CCC</string>
+    <string name="number_fragment_text">BBB</string>
+</resources>
